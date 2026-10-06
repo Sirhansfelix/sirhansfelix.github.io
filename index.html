@@ -34,6 +34,10 @@ p { margin: 0; }
 .eyebrow { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
 .muted { color: var(--muted); }
 section { padding-block: clamp(64px, 10vw, 110px); border-top: 1px solid var(--line); }
+.book-box { border: 1px solid var(--line); border-radius: 18px; background: var(--surface); overflow: hidden; }
+.calendly-inline-widget { min-width: 320px; height: 700px; }
+.book-fallback { padding: 28px; display: grid; gap: 14px; justify-items: start; }
+@media (max-width: 760px) { .calendly-inline-widget { height: 1000px; } }
 .sec-head { display: grid; gap: 14px; max-width: 680px; margin-bottom: 44px; }
 
 .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 999px; font-weight: 600; text-decoration: none; font-size: 0.98rem; border: 1px solid var(--line); transition: transform .15s ease, background .15s ease; }
@@ -193,6 +197,7 @@ footer .disclaimer { font-size: 0.8rem; color: var(--muted); max-width: 90ch; }
       <a href="#about">About</a>
       <a href="#proof">Proof</a>
       <a href="#work">Work with me</a>
+      <a href="#book">Book a call</a>
       <a href="#interview">Interview</a>
       <a class="btn btn-gold" href="https://t.me/Sirhansfelixfreechannel" target="_blank" rel="noopener">Join free</a>
     </div>
@@ -208,7 +213,7 @@ footer .disclaimer { font-size: 0.8rem; color: var(--muted); max-width: 90ch; }
       <p class="lede"><strong>11 years of trading experience. Mindset Coach.</strong> I trade <strong>Gold, US30 and NAS</strong> and teach traders the three things that changed my trading: reading 4-hour structure, timing entries around the London, New York and Asia sessions, and managing the mind behind every trade.</p>
       <div class="cta-row">
         <a class="btn btn-gold" href="#work">Work with me</a>
-        <a class="btn btn-ghost" href="#proof">See the record</a>
+        <a class="btn btn-ghost" href="#book">Book a call</a>
       </div>
       <div class="markets" aria-label="Markets I trade">
         <span class="chip">XAUUSD</span><span class="chip">US30</span><span class="chip">NAS100</span><span class="chip">4H structure</span><span class="chip">Session timing</span>
@@ -352,6 +357,21 @@ footer .disclaimer { font-size: 0.8rem; color: var(--muted); max-width: 90ch; }
   </div>
 </section>
 
+<section id="book">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Book a call</p>
+      <h2>Pick a time that works for you</h2>
+      <p class="muted">Grab a 30-minute slot on my calendar. Times show in your own time zone, and you'll get a confirmation email with the details.</p>
+    </div>
+    <div class="book-box">
+      <div class="calendly-inline-widget" id="calendly-embed">
+        <noscript><div class="book-fallback"><a class="btn btn-gold" href="https://calendly.com/mindfulofvaluellc/30-minute-meeting-clone" target="_blank" rel="noopener">Open my calendar</a></div></noscript>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="interview">
   <div class="wrap interview">
     <a class="poster" href="https://youtu.be/63Ge4u-D5DY" target="_blank" rel="noopener" aria-label="Watch the interview on YouTube">
@@ -453,4 +473,25 @@ footer .disclaimer { font-size: 0.8rem; color: var(--muted); max-width: 90ch; }
 })();
 </script>
 
+<script>
+(function () {
+  var URL = "https://calendly.com/mindfulofvaluellc/30-minute-meeting-clone";
+  var el = document.getElementById("calendly-embed");
+  var forced = document.documentElement.getAttribute("data-theme");
+  var light = forced ? forced === "light" : window.matchMedia("(prefers-color-scheme: light)").matches;
+  var c = light ? { bg: "ffffff", fg: "15191b", gold: "a8741a" } : { bg: "161b1e", fg: "ece7dc", gold: "d9a441" };
+  var src = URL + "?hide_gdpr_banner=1&background_color=" + c.bg + "&text_color=" + c.fg + "&primary_color=" + c.gold;
+  function fallback() {
+    if (el.querySelector("iframe")) return;
+    el.style.height = "auto";
+    el.innerHTML = '<div class="book-fallback"><p class="muted">The calendar didn\'t load here.</p><a class="btn btn-gold" href="' + URL + '" target="_blank" rel="noopener">Open my calendar</a></div>';
+  }
+  var s = document.createElement("script");
+  s.src = "https://assets.calendly.com/assets/external/widget.js";
+  s.async = true;
+  s.onload = function () { window.Calendly.initInlineWidget({ url: src, parentElement: el }); };
+  s.onerror = fallback;
+  document.body.appendChild(s);
+})();
+</script>
 </body></html>
