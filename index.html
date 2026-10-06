@@ -362,13 +362,14 @@ footer .disclaimer { font-size: 0.8rem; color: var(--muted); max-width: 90ch; }
     <div class="sec-head">
       <p class="eyebrow">Book a call</p>
       <h2>Pick a time that works for you</h2>
-      <p class="muted">Grab a 30-minute slot on my calendar. Times show in your own time zone, and you'll get a confirmation email with the details.</p>
+      <p class="muted">Pick a time for a 1-hour coaching session. Times show in your own time zone, and you'll get a confirmation email with the details.</p>
     </div>
     <div class="book-box">
       <div class="calendly-inline-widget" id="calendly-embed">
         <noscript><div class="book-fallback"><a class="btn btn-gold" href="https://calendly.com/mindfulofvaluellc/30-minute-meeting-clone" target="_blank" rel="noopener">Open my calendar</a></div></noscript>
       </div>
     </div>
+    <p class="muted" style="margin-top:14px;font-size:.92rem">Calendar not showing? <a href="https://calendly.com/mindfulofvaluellc/30-minute-meeting-clone" target="_blank" rel="noopener" style="color:var(--gold)">Open it in a new tab</a>.</p>
   </div>
 </section>
 
@@ -486,12 +487,11 @@ footer .disclaimer { font-size: 0.8rem; color: var(--muted); max-width: 90ch; }
     el.style.height = "auto";
     el.innerHTML = '<div class="book-fallback"><p class="muted">The calendar didn\'t load here.</p><a class="btn btn-gold" href="' + URL + '" target="_blank" rel="noopener">Open my calendar</a></div>';
   }
-  var s = document.createElement("script");
-  s.src = "https://assets.calendly.com/assets/external/widget.js";
-  s.async = true;
-  s.onload = function () { window.Calendly.initInlineWidget({ url: src, parentElement: el }); };
-  s.onerror = fallback;
-  document.body.appendChild(s);
+  var f = document.createElement("iframe");
+  f.src = src + "&embed_type=Inline&embed_domain=" + location.hostname;
+  f.title = "Book a time with SirHans";
+  f.width = "100%"; f.height = "100%"; f.style.border = "0";
+  el.appendChild(f);
 })();
 </script>
 </body></html>
