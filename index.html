@@ -144,6 +144,18 @@ section { padding-block: clamp(64px, 10vw, 110px); border-top: 1px solid var(--l
 .quote figcaption strong { font-weight: 600; }
 .quote figcaption span { font-family: var(--mono); font-size: 0.74rem; color: var(--muted); letter-spacing: 0.04em; }
 .fine { font-size: 0.82rem; color: var(--muted); max-width: 70ch; margin-top: 8px; }
+.accts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 16px; margin: 28px 0 8px; }
+.acct { display: grid; gap: 14px; align-content: start; padding: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; }
+.acct .when { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.acct h4 { margin: 0; font-family: var(--display); font-weight: 800; font-size: 1.5rem; letter-spacing: 0.01em; }
+.acct .badge { justify-self: start; font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold); border-radius: 999px; padding: 4px 10px; }
+.acct .pl { font-family: var(--display); font-weight: 800; font-size: clamp(2rem, 4vw, 2.6rem); line-height: 1; color: var(--bull); font-variant-numeric: tabular-nums; }
+.acct dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 16px; margin: 0; }
+.acct dt { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.acct dd { margin: 2px 0 0; font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.acct .note { font-size: 0.8rem; color: var(--muted); margin: 0; }
+.acct a.more { font-weight: 600; color: var(--gold); text-decoration: none; }
+.acct a.more:hover { text-decoration: underline; }
 
 /* offers */
 .ladder { display: grid; gap: 16px; }
@@ -269,16 +281,66 @@ footer .disclaimer { font-size: 0.8rem; color: var(--muted); max-width: 90ch; }
     <div class="sec-head">
       <p class="eyebrow">Proof</p>
       <h2>The record</h2>
-      <p class="muted">Every figure below comes straight from my Eightcap MT4/5 broker statements for two account cycles in 2024: a funded account from January to August, then a $1,000,000 evaluation from August to October.</p>
+      <p class="muted">Every figure below comes straight from my broker statements: two $1,000,000 Eightcap account cycles in 2024 (January to August on MT4, then August to October after Eightcap moved to MT5), plus a $100,000 account in 2025. The headline numbers cover the 2024 cycles; each account is broken out on its own below.</p>
     </div>
     <div class="stats">
       <div class="stat"><span class="k">Net realized P/L</span><span class="v up">$317,187</span><span class="s">Jan 2 – Oct 31, 2024</span></div>
       <div class="stat"><span class="k">Closed trades</span><span class="v">788</span><span class="s">Across both accounts</span></div>
       <div class="stat"><span class="k">Win rate</span><span class="v">53.4%</span><span class="s">Blended, both accounts</span></div>
-      <div class="stat"><span class="k">Max drawdown</span><span class="v">3.8%</span><span class="s">Funded account, Jan – Aug</span></div>
+      <div class="stat"><span class="k">Max drawdown</span><span class="v">3.8%</span><span class="s">$1M evaluation, Jan – Aug</span></div>
     </div>
     <p class="best"><span class="muted">Best market</span> <span>US30: <b>$246,115</b> over <b>251 trades</b>, <b>61.8%</b> win rate</span> <span class="muted">·</span> <span>Gold: <b>$64,604</b> over <b>187 trades</b></span></p>
-    <p class="fine">Figures are realized results from broker statements, not modeled or estimated. They include losing months and losing markets. Past performance does not guarantee future results.</p>
+    <h3 class="subhead">Account by account</h3>
+    <div class="accts">
+      <article class="acct">
+        <span class="when">Jan 2 – Aug 7, 2024 · 7 months</span>
+        <h4>$1M evaluation</h4>
+        <span class="badge">Eightcap · Next Step Funded</span>
+        <span class="pl">+$287,128</span>
+        <dl>
+          <div><dt>Trades</dt><dd>609</dd></div>
+          <div><dt>Win rate</dt><dd>52.7%</dd></div>
+          <div><dt>Profit factor</dt><dd>1.54</dd></div>
+          <div><dt>Max drawdown</dt><dd>3.83%</dd></div>
+          <div><dt>Green months</dt><dd>6 of 8</dd></div>
+          <div><dt>Return on $1M</dt><dd>+28.7%</dd></div>
+        </dl>
+        <p class="note">Statement names the account “Next Step Funded – Evaluation”. Includes a reset to $1M on May 5.</p>
+        <a class="more" href="https://claude.ai/artifact/JkikWkSABzEV3HCqnFLiJQ" target="_blank" rel="noopener">See every trade →</a>
+      </article>
+      <article class="acct">
+        <span class="when">Aug 29 – Oct 31, 2024 · 2 months</span>
+        <h4>$1M account</h4>
+        <span class="badge">Eightcap · MT5</span>
+        <span class="pl">+$30,060</span>
+        <dl>
+          <div><dt>Trades</dt><dd>179</dd></div>
+          <div><dt>Win rate</dt><dd>55.9%</dd></div>
+          <div><dt>Profit factor</dt><dd>1.24</dd></div>
+          <div><dt>Max drawdown</dt><dd>6.08%</dd></div>
+          <div><dt>Short trades won</dt><dd>64.6%</dd></div>
+          <div><dt>Return on $1M</dt><dd>+3.0%</dd></div>
+        </dl>
+        <p class="note">Eightcap’s continuation on MT5 after the server move. Opened at $1,000,000; ended at $1,030,059.65.</p>
+      </article>
+      <article class="acct">
+        <span class="when">Jan 21 – Jun 5, 2025 · 4.5 months</span>
+        <h4>$100K account</h4>
+        <span class="badge">JC Securities</span>
+        <span class="pl">+$19,963</span>
+        <dl>
+          <div><dt>Trades</dt><dd>55</dd></div>
+          <div><dt>Win rate</dt><dd>45.5%</dd></div>
+          <div><dt>Profit factor</dt><dd>2.78</dd></div>
+          <div><dt>Max drawdown</dt><dd>3.99%</dd></div>
+          <div><dt>Avg win / loss</dt><dd>3.3R</dd></div>
+          <div><dt>Return</dt><dd>+20.0%</dd></div>
+        </dl>
+        <p class="note">Opening $100,000 balance entry is labelled “Demo amount” on the statement.</p>
+        <a class="more" href="https://claude.ai/artifact/6u73K4jTxwB1fH4ro4tN8E" target="_blank" rel="noopener">See every trade →</a>
+      </article>
+    </div>
+    <p class="fine">Figures are realized results from broker statements, not modeled or estimated, and have not been audited by a third party. They include losing months and losing markets. Past performance does not guarantee future results.</p>
     <h3 class="subhead">In their words</h3>
     <div class="quotes">
       <figure class="quote big">
