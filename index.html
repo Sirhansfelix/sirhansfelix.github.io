@@ -229,7 +229,7 @@ footer .disclaimer { font-size: 0.8rem; color: var(--muted); max-width: 90ch; }
       <div class="cta-row">
         <a class="btn btn-gold" href="https://whop.com/community-live-trading-access/community-live-trading-access/" target="_blank" rel="noopener">Trade with me</a>
         <a class="btn btn-ghost" href="https://t.me/sirhanschannelwelcoming_bot?start=signal" target="_blank" rel="noopener">Copy my trades</a>
-        <a class="btn btn-ghost" href="https://professorpips.gumroad.com/l/lcvjr" target="_blank" rel="noopener">My courses</a>
+        <a class="btn btn-ghost" href="#courses" id="courses-btn">My courses</a>
       </div>
       <div class="markets" aria-label="Markets I trade">
         <span class="chip">XAUUSD</span><span class="chip">US30</span><span class="chip">NAS100</span><span class="chip">4H structure</span><span class="chip">Session timing</span>
@@ -407,15 +407,15 @@ footer .disclaimer { font-size: 0.8rem; color: var(--muted); max-width: 90ch; }
         <div class="body"><h3>Copy my trades</h3><p>Get my trade alerts as I take them, with entry, stop and targets, so you can mirror them on your own account. Tap below and the bot will get you set up.</p></div>
         <a class="btn btn-ghost" href="https://t.me/sirhanschannelwelcoming_bot?start=signal" target="_blank" rel="noopener">Copy my trades</a>
       </article>
-      <article class="offer featured" id="courses">
+      <article class="offer" id="courses">
         <p class="tier">Self-paced<b>Course</b></p>
-        <div class="body"><span class="tag">Start here</span><h3>Forex Trading Course</h3><p>My trading course, built from 10+ years in the markets. Learn the structure, strategy and mindset I teach, on your own schedule.</p></div>
-        <a class="btn btn-gold" href="https://professorpips.gumroad.com/l/lcvjr" target="_blank" rel="noopener">Get the course</a>
+        <div class="body"><span class="tag">On demand</span><h3>Forex Trading Course</h3><p>My trading course, built from 10+ years in the markets. Learn the structure, strategy and mindset I teach, on your own schedule.</p></div>
+        <a class="btn btn-ghost" href="https://professorpips.gumroad.com/l/lcvjr" target="_blank" rel="noopener">Get the course</a>
       </article>
-      <article class="offer">
+      <article class="offer featured">
         <p class="tier">2026<b>Replay</b></p>
         <div class="body"><span class="tag">Latest bootcamp</span><h3>2026 Trading Bootcamp</h3><p>All 10 days of my 2026 bootcamp on forex, gold and indices: structure, session timing, exits, tilt and the withdrawal plan, plus the Q&amp;As.</p></div>
-        <a class="btn btn-ghost" href="https://professorpips.gumroad.com/l/panhsq" target="_blank" rel="noopener">Watch the replay</a>
+        <a class="btn btn-gold" href="https://professorpips.gumroad.com/l/panhsq" target="_blank" rel="noopener">Watch the replay</a>
       </article>
       <article class="offer">
         <p class="tier">2024<b>Replay</b></p>
@@ -576,5 +576,12 @@ footer .disclaimer { font-size: 0.8rem; color: var(--muted); max-width: 90ch; }
   f.width = "100%"; f.height = "100%"; f.style.border = "0";
   el.appendChild(f);
 })();
+</script>
+<script>
+(function(){var b=document.getElementById('courses-btn');if(!b)return;
+b.addEventListener('click',function(e){var t=document.getElementById('courses');if(!t)return;e.preventDefault();
+var nav=document.querySelector('.nav');function go(sm){var off=(nav?nav.offsetHeight:0)+20;var y=t.getBoundingClientRect().top+window.pageYOffset-off;if(Math.abs(y-window.pageYOffset)<8)return;window.scrollTo({top:y,behavior:sm?'smooth':'auto'});}
+go(true);setTimeout(function(){go(true)},700);setTimeout(function(){go(false)},1400);
+if(history.replaceState)history.replaceState(null,'','#courses');});})();
 </script>
 </body></html>
